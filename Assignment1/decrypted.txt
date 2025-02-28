@@ -1,0 +1,454 @@
+
+
+
+avvkude=ia[h\t)/(sonhy9'3g
+
+
+
+
+
+5et)oh9 roh9ing hhou(                                           ,. Pate'
+Revuest koh Co==entso :q6                                       2. Aeung
+Categohyo ftandahds Tha\9                                  Cis\o fyste=s
+                                                               M. 2ha'i'
+                                                               8. ,9htah
+                                                         5ohte' 5et)oh9s
+                                                            2. Cho)dhuhy
+                                                        ftahent 5et)oh9s
+                                                           5ove=3eh qGG7
+
+
+         Mo3i'e 5ode 9dentikieh `(tion koh Mo3i'e 9Pv6 (M9Pv6)
+
+ftatus ok This Me=o
+
+   This do\u=ent s(e\ikies an 9ntehnet standahds tha\9 (hoto\o' koh the
+   9ntehnet \o==unity, and hevuests dis\ussion and suggestions koh
+   i=(hove=ents.  P'ease hekeh to the \uhhent edition ok the ;9ntehnet
+   `kki\ia' Photo\o' ftandahds; (fTp 1) koh the standahdiaation state
+   and status ok this (hoto\o'.  pisthi3ution ok this =e=o is un'i=ited.
+
+Co(yhight 5oti\e
+
+   Co(yhight (C) The 9ntehnet fo\iety (qGG7).
+
+,3stha\t
+
+   Mo3i'e 9Pv6 (M9Pv6) dekines a ne) Mo3i'ity headeh that is used 3y
+   =o3i'e nodes, \ohhes(ondent nodes, and ho=e agents in a'' =essaging
+   he'ated to the \heation and =anage=ent ok 3indings.  Mo3i'e 9Pv6
+   nodes need the \a(a3i'ity to identiky the=se'ves using an identity
+   otheh than the dekau't ho=e 9P addhess.  fo=e e[a=('es ok identikiehs
+   in\'ude 5et)oh9 ,\\ess 9dentikieh (5,9), |u''y pua'ikied po=ain 5a=e
+   (|pp5), 9ntehnationa' Mo3i'e ftation 9dentikieh (9Mf9), and Mo3i'e
+   fu3s\hi3eh 5u=3eh (Mf9fp5).  This do\u=ent dekines a ne) =o3i'ity
+   o(tion that \an 3e used 3y Mo3i'e 9Pv6 entities to identiky
+   the=se'ves in =essages \ontaining a =o3i'ity headeh.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Pate', et a'.               ftandahds Tha\9                     bPage 1q
+
+R|C :q6         Mo3i'e 5ode 9dentikieh `(tion koh M9Pv6    5ove=3eh qGG7
+
+
+Ta3'e ok Contents
+
+   1. 9nthodu\tion ....................................................q
+   q. Teh=ino'ogy ..................................................... 
+    . Mo3i'e 5ode 9dentikieh `(tion ................................... 
+       .1. M505,9 Mo3i'ity `(tion .....................................:
+       .q. Pho\essing Considehations ..................................:
+   :. fe\uhity Considehations .........................................:
+      :.1. heneha' Considehations .....................................:
+      :.q. M505,9 Considehations ......................................:
+   7. 9,5, Considehations .............................................7
+   6. ,\9no)'edge=ents ................................................7
+   7. 5oh=ative Rekehen\es ............................................7
+   6. 9nkoh=ative Rekehen\e ...........................................6
+
+1.  9nthodu\tion
+
+   The 3ase s(e\iki\ation ok Mo3i'e 9Pv6 bR|C 777q identikies =o3i'ity
+   entities using an 9Pv6 addhess.  9t is essentia' to have a =e\hanis=
+   )hehein =o3i'ity entities \an 3e identikied using otheh identikiehs
+   (koh e[a=('e, a 5et)oh9 ,\\ess 9dentikieh (5,9) bR|C:q6qq,
+   9ntehnationa' Mo3i'e ftation 9dentikieh (9Mf9), oh an a(('i\ationj
+   de('oy=ent s(e\iki\ o(avue identikieh).
+
+   The \a(a3i'ity to identiky a =o3i'ity entity via identikiehs otheh
+   than the 9Pv6 addhess \an 3e 'evehaged koh (ehkoh=ing vahious
+   kun\tions, koh e[a=('e,
+
+   o  authenti\ation and authohiaation using an e[isting ,,,
+      (,uthenti\ation, ,uthohiaation, and ,\\ounting) inkhasthu\tuhe oh
+      via an 8ARj,uC (8o=e Ao\ation Registehj,uthenti\ation Centeh)
+
+   o  dyna=i\ a''o\ation ok a =o3i'ity an\hoh (oint
+
+   o  dyna=i\ a''o\ation ok a ho=e addhess
+
+   This do\u=ent dekines an o(tion )ith a su3ty(e nu=3eh that denotes a
+   s(e\iki\ ty(e ok identikieh.  `ne instan\e ok su3ty(e, the 5,9, is
+   dekined in fe\tion  .1.  9t is anti\i(ated that otheh identikiehs
+   )i'' 3e dekined koh use in the =o3i'ity headeh in the kutuhe.
+
+   This o(tion f8`wAp 3e used )hen 9ntehnet 2ey x[\hange (92x)j9Pse\ is
+   not used koh (hote\ting 3inding u(dates oh 3inding a\9no)'edge=ents
+   as s(e\ikied in bR|C 777q.  9t is ty(i\a''y used )ith the
+   authenti\ation o(tion bR|C:q67q.  But this o(tion =ay 3e used
+   inde(endent'y.  |oh e[a=('e, the identikieh \an (hovide a\\ounting
+   and 3i''ing sehvi\es.
+
+
+
+
+Pate', et a'.               ftandahds Tha\9                     bPage qq
+
+R|C :q6         Mo3i'e 5ode 9dentikieh `(tion koh M9Pv6    5ove=3eh qGG7
+
+
+q.  Teh=ino'ogy
+
+   The 9ey)ohds ;MwfT;, ;MwfT 5`T;, ;Rxpw9Rxp;, ;f8,AA;, ;f8,AA 5`T;,
+   ;f8`wAp;, ;f8`wAp 5`T;, ;RxC`MMx5pxp;, ;M,s;, and ;`PT9`5,A; in this
+   do\u=ent ahe to 3e inteh(heted as des\hi3ed in bR|Cq11tq.
+
+ .  Mo3i'e 5ode 9dentikieh `(tion
+
+   The Mo3i'e 5ode 9dentikieh o(tion is a ne) o(tiona' data kie'd that
+   is \ahhied in the Mo3i'e 9Pv60dekined =essages that in\'udes the
+   Mo3i'ity headeh.  "ahious koh=s ok identikiehs \an 3e used to
+   identiky a Mo3i'e 5ode (M5).  T)o e[a=('es ahe a 5et)oh9 ,\\ess
+   9dentikieh (5,9) bR|C:q6qq and an o(avue identikieh a(('i\a3'e to a
+   (ahti\u'ah a(('i\ation.  The fu3ty(e kie'd in the o(tion dekines the
+   s(e\iki\ ty(e ok identikieh.
+
+   This o(tion \an 3e used in =o3i'ity =essages \ontaining a =o3i'ity
+   headeh.  The su3ty(e kie'd in the o(tion is used to inteh(het the
+   s(e\iki\ ty(e ok identikieh.
+
+       G                   1                   q                    
+       G 1 q   : 7 6 7 6 t G 1 q   : 7 6 7 6 t G 1 q   : 7 6 7 6 t G 1
+                                       K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K
+                                       c  `(tion Ty(e  c `(tion Aength c
+       K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K
+       c  fu3ty(e      c          9dentikieh ...
+       K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K0K
+
+      `(tion Ty(eo
+
+         M509p0`PT9`50TsPx has 3een assigned va'ue 6 3y the 9,5,.  9t is
+         an  603it identikieh ok the ty(e =o3i'ity o(tion.
+
+      `(tion Aengtho
+
+         603it unsigned integeh, he(hesenting the 'ength in o\tets ok
+         the fu3ty(e and 9dentikieh kie'ds.
+
+      fu3ty(eo
+
+         fu3ty(e kie'd dekines the s(e\iki\ ty(e ok identikieh in\'uded
+         in the 9dentikieh kie'd.
+
+      9dentikieho
+
+         , vahia3'e 'ength identikieh ok ty(e, as s(e\ikied 3y the
+         fu3ty(e kie'd ok this o(tion.
+
+
+
+
+Pate', et a'.               ftandahds Tha\9                     bPage  q
+
+R|C :q6         Mo3i'e 5ode 9dentikieh `(tion koh M9Pv6    5ove=3eh qGG7
+
+
+   This o(tion does not have any a'ign=ent hevuihe=ents.
+
+ .1.  M505,9 Mo3i'ity `(tion
+
+   The M505,9 =o3i'ity o(tion uses the geneha' koh=at ok the Mo3i'e 5ode
+   9dentikieh o(tion as dekined in fe\tion  .  This o(tion uses the
+   su3ty(e va'ue ok 1.  The M505,9 =o3i'ity o(tion is used to identiky
+   the =o3i'e node.
+
+   The M505,9 =o3i'ity o(tion uses an identikieh ok the koh= useh]hea'=
+   bR|C:q6qq.  This o(tion MwfT 3e i=('e=ented 3y the entities
+   i=('e=enting this s(e\iki\ation.
+
+ .q.  Pho\essing Considehations
+
+   The 'o\ation ok the M5 9dentikieh o(tion is as ko''o)so rhen (hesent,
+   this o(tion MwfT a((eah 3ekohe any authenti\ation0he'ated o(tion in a
+   =essage \ontaining a Mo3i'ity headeh.
+
+:.  fe\uhity Considehations
+
+:.1.  heneha' Considehations
+
+   Mo3i'e 9Pv6 a'heady \ontains one =e\hanis= koh identikying =o3i'e
+   nodes, the 8o=e ,ddhess o(tion bR|C 777q.  ,s a hesu't, the
+   vu'neha3i'ities ok the ne) o(tion dekined in this do\u=ent ahe
+   si=i'ah to those that a'heady e[ist koh Mo3i'e 9Pv6.  9n (ahti\u'ah,
+   the use ok a (eh=anent, sta3'e identikieh =ay \o=(ho=ise the (hiva\y
+   ok the useh, =a9ing it (ossi3'e to tha\9 a (ahti\u'ah devi\e oh useh
+   as it =oves thhough dikkehent 'o\ations.
+
+:.q.  M505,9 Considehations
+
+   fin\e the Mo3i'e 5ode 9dentikieh o(tion des\hi3ed in fe\tion  
+   hevea's the ho=e akki'iation ok a useh, it =ay assist an atta\9eh in
+   deteh=ining the identity ok the useh, he'( the atta\9eh in tahgeting
+   s(e\iki\ vi\ti=s, oh assist in kuhtheh (ho3ing ok the usehna=e s(a\e.
+
+   These vu'neha3i'ities \an 3e addhessed thhough vahious =e\hanis=s,
+   su\h as those dis\ussed 3e'o)o
+
+   o  xn\hy(ting thakki\ at the 'in9 'ayeh, su\h that otheh usehs on the
+      sa=e 'in9 do not see the identikiehs.  This =e\hanis= does not
+      he'( against atta\9ehs on the hest ok the (ath 3et)een the =o3i'e
+      node and its ho=e agent.
+
+   o  xn\hy(ting the )ho'e (a\9et, su\h as )hen using 9Pse\ to (hote\t
+      the \o==uni\ations )ith the ho=e agent bR|C 776q.
+
+
+
+Pate', et a'.               ftandahds Tha\9                     bPage :q
+
+R|C :q6         Mo3i'e 5ode 9dentikieh `(tion koh M9Pv6    5ove=3eh qGG7
+
+
+   o  wsing an authenti\ation =e\hanis= that ena3'es the use ok (hiva\y
+      5,9s bR|C:q6qq oh te=(ohahy, \hanging ;(seudony=s; as identikiehs.
+
+   9n any \ase, it shou'd 3e noted that as the identikieh o(tion is on'y
+   needed on the kihst hegisthation at the ho=e agent and su3sevuent
+   hegisthations \an use the ho=e addhess, the )indo) ok (hiva\y
+   vu'neha3i'ity in this do\u=ent is hedu\ed as \o=(ahed to bR|C 777q.
+   9n addition, this do\u=ent is a (aht ok a so'ution to a''o) dyna=i\
+   ho=e addhesses to 3e used.  This is an i=(hove=ent to (hiva\y as
+   )e'', and it akke\ts 3oth \o==uni\ations )ith the ho=e agent and the
+   \ohhes(ondent nodes, 3oth ok )hi\h have to 3e to'd the ho=e addhess.
+
+7.  9,5, Considehations
+
+   The va'ues koh ne) =o3i'ity o(tions =ust 3e assigned kho= the Mo3i'e
+   9Pv6 bR|C 777q nu=3ehing s(a\e.
+
+   The 9,5, has assigned the va'ue 6 koh the M509p0`PT9`50TsPx.
+
+   9n addition, 9,5, has \heated a ne) na=es(a\e koh the su3ty(e kie'd
+   ok the Mo3i'e 5ode 9dentikieh o(tion.  The \uhhent'y a''o\ated va'ues
+   ahe as ko''o)so
+
+   5,9 (dekined in bR|C:q6qq).
+
+   5e) va'ues koh this na=es(a\e \an 3e a''o\ated using ftandahds ,\tion
+   bR|Cq: :q.
+
+6.  ,\9no)'edge=ents
+
+   The authohs )ou'd 'i9e to than9 Basavaha/ Pati' koh his hevie) and
+   suggestions on this do\u=ent.  Than9s to ]ahi ,h99o koh hevie) and
+   suggestions hegahding se\uhity \onsidehations and vahious otheh
+   as(e\ts ok the do\u=ent.
+
+7.  5oh=ative Rekehen\es
+
+   bR|Cq11tq    Bhadneh, f., ;2ey )ohds koh use in R|Cs to 9ndi\ate
+                Revuihe=ent Aeve's;, BCP 1:, R|C q11t, Mah\h 1tt7.
+
+   bR|Cq: :q    5ahten, T. and 8. ,'vesthand, ;huide'ines koh rhiting an
+                9,5, Considehations fe\tion in R|Cs;, BCP q6, R|C q: :,
+                `\to3eh 1tt6.
+
+   bR|C 777q    ]ohnson, p., Peh9ins, C., and ]. ,h99o, ;Mo3i'ity
+                fu((oht in 9Pv6;, R|C  777, ]une qGG:.
+
+
+
+
+
+Pate', et a'.               ftandahds Tha\9                     bPage 7q
+
+R|C :q6         Mo3i'e 5ode 9dentikieh `(tion koh M9Pv6    5ove=3eh qGG7
+
+
+   bR|C 776q    ,h99o, ]., pevaha(a''i, "., and |. pu(ont, ;wsing 9Pse\
+                to Phote\t Mo3i'e 9Pv6 figna'ing Bet)een Mo3i'e 5odes
+                and 8o=e ,gents;, R|C  776, ]une qGG:.
+
+   bR|C:q6qq    ,3o3a, B., Bead'es, M., ,h99o, ]., and P. xhonen, ;The
+                5et)oh9 ,\\ess 9dentikieh;, R|C :q6q, 5ove=3eh qGG7.
+
+6.  9nkoh=ative Rekehen\e
+
+   bR|C:q67q    Pate', ,., Aeung, 2., 2ha'i', M., ,9htah, 8., and 2.
+                Cho)dhuhy, ;,uthenti\ation Photo\o' koh Mo3i'e 9Pv6;,
+                R|C :q67, 5ove=3eh qGG7.
+
+,uthohs4 ,ddhesses
+
+   ,'(esh Pate'
+   Cis\o fyste=s
+   17G r. Tas=an phive
+   fan ]ose, C,  t71 :
+   wf
+
+   Phoneo K1 :G6067 0t76G
+   xMai'o a'(esh]\is\o.\o=
+
+
+   2ent Aeung
+   Cis\o fyste=s
+   17G r. Tas=an phive
+   fan ]ose, C,  t71 :
+   wf
+
+   Phoneo K1 :G607q607G G
+   xMai'o 9'eung]\is\o.\o=
+
+
+   Moha=ed 2ha'i'
+   5ohte' 5et)oh9s
+   qqq1 Aa9eside B'vd.
+   Ri\hahdson, Tz  77G6q
+   wf
+
+   Phoneo K1 t7q06670G77:
+   xMai'o =9ha'i']nohte'.\o=
+
+
+
+
+
+
+
+
+Pate', et a'.               ftandahds Tha\9                     bPage 6q
+
+R|C :q6         Mo3i'e 5ode 9dentikieh `(tion koh M9Pv6    5ove=3eh qGG7
+
+
+   8asee3 ,9htah
+   5ohte' 5et)oh9s
+   qqq1 Aa9eside B'vd.
+   Ri\hahdson, Tz  77G6q
+   wf
+
+   Phoneo K1 t7q066:0:7 q
+   xMai'o hasee3a9]nohte'.\o=
+
+
+   2unta' Cho)dhuhy
+   ftahent 5et)oh9s
+    G 9ntehnationa' P'a\e
+   Te)9s3uhy, M,  G1676
+   wf
+
+   Phoneo K1 q1: 77G 1:16
+   xMai'o 9\ho)dhuhy]stahentnet)oh9s.\o=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Pate', et a'.               ftandahds Tha\9                     bPage 7q
+
+R|C :q6         Mo3i'e 5ode 9dentikieh `(tion koh M9Pv6    5ove=3eh qGG7
+
+
+|u'' Co(yhight ftate=ent
+
+   Co(yhight (C) The 9ntehnet fo\iety (qGG7).
+
+   This do\u=ent is su3/e\t to the hights, 'i\enses and hesthi\tions
+   \ontained in BCP 76, and e[\e(t as set kohth thehein, the authohs
+   hetain a'' theih hights.
+
+   This do\u=ent and the inkoh=ation \ontained hehein ahe (hovided on an
+   ;,f 9f; 3asis and T8x C`5TR9BwT`R, T8x `Rh,59.,T9`5 8xjf8x RxPRxfx5Tf
+   `R 9f fP`5f`Rxp Bs (9| ,5s), T8x 95TxR5xT f`C9xTs ,5p T8x 95TxR5xT
+   x5h95xxR95h T,f2 |`RCx p9fCA,9M ,AA r,RR,5T9xf, xzPRxff `R 9MPA9xp,
+   95CAwp95h BwT 5`T A9M9Txp T` ,5s r,RR,5Ts T8,T T8x wfx `| T8x
+   95|`RM,T9`5 8xRx95 r9AA 5`T 95|R95hx ,5s R9h8Tf `R ,5s 9MPA9xp
+   r,RR,5T9xf `| MxRC8,5T,B9A9Ts `R |9T5xff |`R , P,RT9CwA,R PwRP`fx.
+
+9nte''e\tua' Pho(ehty
+
+   The 9xT| ta9es no (osition hegahding the va'idity oh s\o(e ok any
+   9nte''e\tua' Pho(ehty Rights oh otheh hights that =ight 3e \'ai=ed to
+   (ehtain to the i=('e=entation oh use ok the te\hno'ogy des\hi3ed in
+   this do\u=ent oh the e[tent to )hi\h any 'i\ense undeh su\h hights
+   =ight oh =ight not 3e avai'a3'eb noh does it he(hesent that it has
+   =ade any inde(endent ekkoht to identiky any su\h hights.  9nkoh=ation
+   on the (ho\eduhes )ith hes(e\t to hights in R|C do\u=ents \an 3e
+   kound in BCP 76 and BCP 7t.
+
+   Co(ies ok 9PR dis\'osuhes =ade to the 9xT| fe\hetahiat and any
+   assuhan\es ok 'i\enses to 3e =ade avai'a3'e, oh the hesu't ok an
+   atte=(t =ade to o3tain a geneha' 'i\ense oh (eh=ission koh the use ok
+   su\h (ho(hietahy hights 3y i=('e=entehs oh usehs ok this
+   s(e\iki\ation \an 3e o3tained kho= the 9xT| on0'ine 9PR he(ositohy at
+   htt(ojj))).ietk.ohgji(h.
+
+   The 9xT| invites any intehested (ahty to 3hing to its attention any
+   \o(yhights, (atents oh (atent a(('i\ations, oh otheh (ho(hietahy
+   hights that =ay \oveh te\hno'ogy that =ay 3e hevuihed to i=('e=ent
+   this standahd.  P'ease addhess the inkoh=ation to the 9xT| at ietk0
+   i(h]ietk.ohg.
+
+,\9no)'edge=ent
+
+   |unding koh the R|C xditoh kun\tion is \uhhent'y (hovided 3y the
+   9ntehnet fo\iety.
+
+
+
+
+
+
+
+Pate', et a'.               ftandahds Tha\9                     bPage 6q
+
