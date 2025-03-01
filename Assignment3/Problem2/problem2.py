@@ -1,4 +1,3 @@
-
 import sys
 import ast
 import random
