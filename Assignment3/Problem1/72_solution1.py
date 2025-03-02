@@ -1,60 +1,122 @@
 import socket
-import binascii
+from Cryptodome.Cipher import DES3
 
-# Configuration: use the correct HOST and PORT where your server is running
-HOST = "127.0.0.1"
-PORT = 12345
+class DES3Solver:
+    def __init__(self, host, port):
+        self.host = host
+        self.port = port
+        self.connect()
+    
+    def connect(self):
+        """
+        Establish a persistent connection to the server and wrap it in a file-like object
+        to support line-based I/O. Immediately discard the server’s prompt.
+        """
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.sock.connect((self.host, self.port))
+        self.f = self.sock.makefile("rwb", buffering=0)
+        self._discard_prompt()
+    
+    def _read_line(self):
+        """Read one line from the socket and remove its trailing newline."""
+        line = self.f.readline()
+        if not line:
+            raise Exception("Connection closed by server.")
+        return line.decode().rstrip("\n")
+    
+    def _read_prompt(self):
+        """Read all lines of the server prompt (assumed to be four lines)."""
+        for _ in range(4):
+            self._read_line()
+    
+    def _discard_prompt(self):
+        """Read and discard the server prompt."""
+        self._read_prompt()
+    
+    def _send_line(self, line):
+        """Send a line to the server and flush the output."""
+        self.f.write((line + "\n").encode())
+        self.f.flush()
+    
+    def get_challenge(self):
+        """
+        Fetch the encrypted challenge from the server using API option 1.
+        """
+        self._send_line("1")
+        challenge_hex = self._read_line().strip()
+        self._read_prompt()  # Discard the prompt
+        return bytes.fromhex(challenge_hex)
+    
+    def decrypt(self, ciphertext):
+        """
+        Use the decryption oracle (API option 2) to decrypt a given ciphertext.
+        """
+        self._send_line("2")
+        self._read_line()  # Discard the ciphertext prompt
+        self._send_line(ciphertext.hex())
+        decrypted_hex = self._read_line().strip()
+        self._read_prompt()  # Discard the prompt
+        return bytes.fromhex(decrypted_hex)
+    
+    def reveal_string(self, plaintext):
+        """
+        Reveal the content of string.txt using API option 3.
+        """
+        self._send_line("3")
+        self._read_line()  # Read and discard plaintext prompt
+        self._send_line(plaintext.hex())
+        return self._read_line()
+    
+    def recover_plaintext(self):
+        """
+        Recover the original plaintext challenge by analyzing bit flips.
+        """
+        encrypted_challenge = self.get_challenge()
+        flipped_bits = set()
+        observed_outputs = []
 
-def recv_until(sock, delimiter, timeout=2):
-    """Receive data until the delimiter text is found."""
-    sock.settimeout(timeout)
-    data = b""
-    while delimiter.encode() not in data:
+        print("[*] Starting decryption queries...")
+        
+        for _ in range(128):
+            try:
+                decrypted_block = self.decrypt(encrypted_challenge[:8])
+            except Exception as e:
+                print(f"[!] Error during decryption: {e}")
+                break
+            
+            if observed_outputs:
+                previous_output = observed_outputs[-1]
+                diff = bytes(a ^ b for a, b in zip(previous_output, decrypted_block))
+                for byte_index, byte in enumerate(diff):
+                    for bit_index in range(8):
+                        if (byte >> bit_index) & 1:
+                            flipped_bits.add(byte_index * 8 + bit_index)
+            
+            observed_outputs.append(decrypted_block)
+        
+        print(f"[*] Identified flipped bits: {flipped_bits}")
+        
+        reconstructed_key = bytearray(24)
+        for bit_position in flipped_bits:
+            byte_index, bit_index = divmod(bit_position, 8)
+            reconstructed_key[byte_index] ^= (1 << bit_index)
+        
+        print(f"[*] Reconstructed key: {reconstructed_key.hex()}")
+        cipher = DES3.new(bytes(reconstructed_key), mode=DES3.MODE_CBC, iv=self.iv)
+        return cipher.decrypt(encrypted_challenge)
+    
+    def solve(self):
+        """
+        Recover the secret challenge and use it to retrieve string.txt.
+        """
         try:
-            chunk = sock.recv(1024)
-        except socket.timeout:
-            break
-        if not chunk:
-            break
-        data += chunk
-    return data.decode()
-
-def main():
-    # Connect to the server
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        sock.connect((HOST, PORT))
-        
-        # Receive the welcome message and prompt from the server
-        welcome = recv_until(sock, "Choose an API option")
-        print("Server Welcome Message:")
-        print(welcome)
-        
-        # Step 1: Fetch the encrypted challenge (Option 1)
-        sock.sendall(b"1\n")
-        response = recv_until(sock, "Choose an API option")
-        # Assume the first line is the hex-encoded challenge ciphertext.
-        challenge_ciphertext_hex = response.splitlines()[0].strip()
-        print("Encrypted Challenge (hex):", challenge_ciphertext_hex)
-        
-        # Step 2: Decrypt the challenge (Option 2)
-        sock.sendall(b"2\n")
-        # Wait for the prompt "(hex) ct: " and send the ciphertext.
-        prompt = recv_until(sock, "(hex) ct:")
-        print("Server prompt for decryption:", prompt)
-        sock.sendall((challenge_ciphertext_hex + "\n").encode())
-        decryption_response = recv_until(sock, "Choose an API option")
-        # The first line should contain the hex text of the decrypted challenge.
-        decrypted_challenge_hex = decryption_response.splitlines()[0].strip()
-        print("Decrypted Challenge (hex):", decrypted_challenge_hex)
-        
-        # Step 3: Reveal the secret string (Option 3)
-        sock.sendall(b"3\n")
-        prompt = recv_until(sock, "(hex) pt:")
-        print("Server prompt for secret reveal:", prompt)
-        sock.sendall((decrypted_challenge_hex + "\n").encode())
-        final_response = recv_until(sock, "\n")
-        print("Secret string response:")
-        print(final_response)
+            plaintext_challenge = self.recover_plaintext()
+            result = self.reveal_string(plaintext_challenge)
+            print("Recovered string.txt content:", result)
+        finally:
+            self.f.close()
+            self.sock.close()
 
 if __name__ == "__main__":
-    main()
+    solver = DES3Solver("127.0.0.1", 29103)
+    solver.solve()
