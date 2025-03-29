@@ -2,7 +2,7 @@ import signal
 import os
 import random
 import sys
-from Cryptodome.Cipher import DES3
+from Crypto.Cipher import DES3
 import socket
 import threading
 
