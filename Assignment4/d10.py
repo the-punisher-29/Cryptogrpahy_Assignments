@@ -1,83 +1,34 @@
-#!/usr/bin/env python3
-import json
-import socket
-import hashlib
-from Crypto.Cipher import AES
+from sympy.ntheory.residue_ntheory import discrete_log
 from Crypto.Util.Padding import unpad
+from json import loads, dumps
+from Crypto.Cipher import AES
+from hashlib import sha1
+from pwn import remote
 
-HOST = "socket.cryptohack.org"
-PORT = 13378
+def decrypt_flag(shared_secret, iv, ciphertext):
+    key = sha1(str(shared_secret).encode()).digest()[:16]
+    ciphertext = bytes.fromhex(ciphertext)
+    iv = bytes.fromhex(iv)
+    plaintext = AES.new(key, AES.MODE_CBC, iv).decrypt(ciphertext)
+    return unpad(plaintext, 16).decode()
 
-# Malicious Diffie–Hellman parameters.
-p = 37       # Use a prime accepted by Bob
-g = 1
-A = 1
+io = remote("socket.cryptohack.org", 13378)
+io.readuntil(b"from Alice: ")
+recv = loads(io.readline())
+A = int(recv["A"], 16)
+g = int(recv["g"], 16)
+p = int(recv["p"], 16)
 
-payload = {"p": p, "g": g, "A": A}
+io.readuntil(b"from Alice: ")
+recv = loads(io.readline())
+iv = recv["iv"]
+ciphertext = recv["encrypted"]
 
-s = socket.create_connection((HOST, PORT))
-s.sendall((json.dumps(payload) + "\n").encode())
+smooth_p = 0x72b20ce22e5616f923901a946b02b2ad0417882d9172d88c1940fec763b0cdf02ca5862cfa70e47fb8fd10615bf61187cd564a017355802212a526453e1fb9791014f070d77f8ff4dd54a6d1d58969293734e0b6bc22f3ceea788aa33be35eed4bdc1c8ceb94084399d98e13e69a2b9fa6c5583836a15798ba1a10edd81160a15662cdf587df6b816c570f9b11a466d1b4c328180f614e964f3a5ec61c3f2b759b21687a122f9faefc86fe69a3efd14829639596eb7f2de6eab6b444d06233d34d0651e6fed17db4d0025e58db7cad8824c3e93ed24df588a0a4530be2676e995f870172b9e765ec2886bce140000000000000000000000000000000000000000000000000000000000000000000000000000001
+io.sendline(dumps({"g":hex(g),"A": hex(A),"p": hex(smooth_p)}).encode())
+io.readuntil(b"Bob says to you: ")
+B = int(loads(io.readline())["B"], 16)
 
-# Read the full response.
-resp = b""
-while True:
-    part = s.recv(4096)
-    if not part:
-        break
-    resp += part
-s.close()
-
-print("Raw response:", resp)
-
-# Split the raw response by lines.
-raw_lines = resp.decode().splitlines()
-
-# Initialize dictionaries.
-bob_data = None
-alice_data = None
-
-# Process each line and extract JSON from the ones we need.
-for line in raw_lines:
-    if line.startswith("Intercepted from Bob:"):
-        try:
-            json_text = line.split("Intercepted from Bob:", 1)[1].strip()
-            bob_data = json.loads(json_text)
-        except Exception as e:
-            print("Error parsing Bob's data:", e)
-    elif line.startswith("Intercepted from Alice:"):
-        try:
-            json_text = line.split("Intercepted from Alice:", 1)[1].strip()
-            data_candidate = json.loads(json_text)
-            if "iv" in data_candidate:
-                alice_data = data_candidate
-        except Exception as e:
-            print("Error parsing Alice's data:", e)
-
-if not bob_data or not alice_data:
-    print("Failed to extract necessary JSON data.")
-    exit(1)
-
-print("Bob's data:", bob_data)
-print("Alice's data:", alice_data)
-
-# Get iv and the encrypted ciphertext.
-iv = bytes.fromhex(alice_data["iv"])
-ct = bytes.fromhex(alice_data["encrypted"])  # note key is "encrypted"
-
-# Since g is 1, the shared secret is always 1.
-shared_secret = 1
-
-# Derive the AES key.
-key = hashlib.sha1(str(shared_secret).encode()).digest()[:16]
-
-# Decrypt using AES-CBC.
-cipher = AES.new(key, AES.MODE_CBC, iv)
-decrypted = cipher.decrypt(ct)
-
-# Try to unpad (if PKCS#7 padding was used); if not, fall back to stripping null bytes.
-try:
-    plaintext = unpad(decrypted, AES.block_size)
-except ValueError:
-    plaintext = decrypted.rstrip(b"\x00")
-
-print("Enter flag here:", plaintext.decode())
+b = discrete_log(smooth_p, B, 2)
+shared_secret = pow(A, b, p)
+print(decrypt_flag(shared_secret, iv, ciphertext))
